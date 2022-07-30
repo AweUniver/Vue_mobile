@@ -22,19 +22,19 @@
           <span>动态</span>
         </div>
         <div class="user-data-item">
+          <span>0</span>
           <span>{{userObj.follow_count}}</span>
-          <span>关注</span>
         </div>
         <div class="user-data-item">
+          <span>0</span>
           <span>{{userObj.fans_count}}</span>
-          <span>粉丝</span>
         </div>
       </div>
     </div>
 
     <!-- 操作面板 -->
     <van-cell-group class="action-card">
-      <van-cell icon="edit" title="编辑资料" is-link to="/user_editor"/>
+      <van-cell icon="edit" title="编辑资料" is-link />
       <van-cell icon="chat-o" title="小思同学" is-link />
       <van-cell icon="warning-o" title="退出登录" is-link @click="quitFn"/>
     </van-cell-group>
@@ -44,7 +44,6 @@
 <script>
 import { Dialog } from 'vant'
 import { GetUserInfoAPI } from '@/api'
-import { removeToken } from '@/utils/token.js'
 export default {
   data () {
     return {
@@ -59,13 +58,11 @@ export default {
     // 退出方法
     quitFn () {
       Dialog.confirm({
-        title: '是否退出登录',
-        message: '这就走了？不爱我了吗？'
+        title: '标题',
+        message: '弹窗内容'
       })
         .then(() => {
           // on confirm
-          removeToken()
-          this.$router.replace('/login')
         })
         .catch(() => {
           // on cancel

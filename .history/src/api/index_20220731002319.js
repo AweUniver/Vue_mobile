@@ -26,15 +26,13 @@ export const userUnFollowedAPI = ({ userId }) =>
   })
 
 // 用户获取个人资料
-export const userProfileAPI = () =>
-  request({
-    url: '/v1_0/user/profile'
-  })
+export const userProfileAPI = () => request({
+  url: '/v1_0/user/profile'
+})
 // 用户获取基本信息
-export const GetUserInfoAPI = () =>
-  request({
-    url: '/v1_0/user'
-  })
+export const GetUserInfoAPI = () => request({
+  url: '/v1_0/user'
+})
 // 用户更新头像
 export const updateUserPhotoAPI = (formObj) => {
   return request({
@@ -44,26 +42,16 @@ export const updateUserPhotoAPI = (formObj) => {
   })
 }
 // 用户更新基本资料
-export const updateUserProfileAPI = (dataObj) => {
-  const obj = {
-    name: '',
-    gender: 0,
-    birthday: '',
-    intro: ''
-  }
-
-  for (const prop in obj) {
-    if (dataObj[prop] === undefined) {
-      delete obj[prop]
-    } else {
-      obj[prop] = dataObj[prop]
-    }
-  }
-
+export const updateUserProfileAPI = ({ obj }) => {
   return request({
     url: '/v1_0/user/profile',
     method: 'PATCH',
-    data: obj
+    data: { // data不会忽略值为null的键值对，params遇到null
+      name,
+      gender,
+      birthday,
+      intro
+    }
   })
 }
 // 获取所有频道

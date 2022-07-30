@@ -26,44 +26,20 @@ export const userUnFollowedAPI = ({ userId }) =>
   })
 
 // 用户获取个人资料
-export const userProfileAPI = () =>
-  request({
-    url: '/v1_0/user/profile'
-  })
+export const userProfileAPI = () => request({
+  url: '/v1_0/user/profile'
+})
 // 用户获取基本信息
-export const GetUserInfoAPI = () =>
-  request({
-    url: '/v1_0/user'
-  })
+export const GetUserInfoAPI = () => request({
+  url: '/v1_0/user'
+})
 // 用户更新头像
-export const updateUserPhotoAPI = (formObj) => {
+export const updatePhotoAPI = (formObj) => {
   return request({
     url: '/v1_0/user/photo',
     method: 'PATCH',
     data: formObj
-  })
-}
-// 用户更新基本资料
-export const updateUserProfileAPI = (dataObj) => {
-  const obj = {
-    name: '',
-    gender: 0,
-    birthday: '',
-    intro: ''
-  }
-
-  for (const prop in obj) {
-    if (dataObj[prop] === undefined) {
-      delete obj[prop]
-    } else {
-      obj[prop] = dataObj[prop]
-    }
-  }
-
-  return request({
-    url: '/v1_0/user/profile',
-    method: 'PATCH',
-    data: obj
+    // 如果你的请求体内容是表单对象, 浏览器会自动携带请求头Content-Type为multipart/form-data
   })
 }
 // 获取所有频道

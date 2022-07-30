@@ -51,19 +51,15 @@ export const updateUserProfileAPI = (dataObj) => {
     birthday: '',
     intro: ''
   }
-
   for (const prop in obj) {
-    if (dataObj[prop] === undefined) {
-      delete obj[prop]
-    } else {
-      obj[prop] = dataObj[prop]
-    }
   }
-
   return request({
     url: '/v1_0/user/profile',
     method: 'PATCH',
-    data: obj
+    data: {
+      // data不会忽略值为null的键值对，params遇到null
+      obj
+    }
   })
 }
 // 获取所有频道

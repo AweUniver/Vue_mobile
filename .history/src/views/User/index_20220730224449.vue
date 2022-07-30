@@ -23,18 +23,18 @@
         </div>
         <div class="user-data-item">
           <span>{{userObj.follow_count}}</span>
-          <span>关注</span>
+          <span></span>
         </div>
         <div class="user-data-item">
           <span>{{userObj.fans_count}}</span>
-          <span>粉丝</span>
+          <span></span>
         </div>
       </div>
     </div>
 
     <!-- 操作面板 -->
     <van-cell-group class="action-card">
-      <van-cell icon="edit" title="编辑资料" is-link to="/user_editor"/>
+      <van-cell icon="edit" title="编辑资料" is-link />
       <van-cell icon="chat-o" title="小思同学" is-link />
       <van-cell icon="warning-o" title="退出登录" is-link @click="quitFn"/>
     </van-cell-group>
@@ -64,8 +64,6 @@ export default {
       })
         .then(() => {
           // on confirm
-          removeToken()
-          this.$router.replace('/login')
         })
         .catch(() => {
           // on cancel

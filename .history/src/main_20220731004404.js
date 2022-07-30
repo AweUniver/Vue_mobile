@@ -21,16 +21,15 @@ import {
   Row,
   Col,
   Badge,
-  Search,
-  Image as VanImage,
-  Divider,
-  ShareSheet,
-  Tag,
-  CellGroup,
-  Image,
-  SwipeCell,
-  Dialog,
-  DatetimePicker
+  Search
+  , Image as VanImage,
+  Divider
+  , ShareSheet
+  , Tag, CellGroup
+  , Image
+  , SwipeCell
+  , Dialog
+  , DatetimePicker
 } from 'vant'
 
 Vue.use(DatetimePicker)
@@ -66,6 +65,7 @@ Vue.config.productionTip = false
 const directiveObj = {
   install (Vue) {
     Vue.directive('fofo', {
+
       inserted (el) {
         if (el.nodeName === 'TEXTAREA' || el.nodeName === 'INPUT') {
           el.focus()
@@ -97,7 +97,7 @@ const directiveObj = {
     })
   }
 }
-Vue.use(directiveObj) // 执行目标对象里install方法并传入Vue类
+Vue.use(directiveObj)// 执行目标对象里install方法并传入Vue类
 
 new Vue({
   router,

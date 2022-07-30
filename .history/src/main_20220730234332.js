@@ -21,19 +21,16 @@ import {
   Row,
   Col,
   Badge,
-  Search,
-  Image as VanImage,
-  Divider,
-  ShareSheet,
-  Tag,
-  CellGroup,
-  Image,
-  SwipeCell,
-  Dialog,
-  DatetimePicker
+  Search
+  , Image as VanImage,
+  Divider
+  , ShareSheet
+  , Tag, CellGroup
+  , Image
+  , SwipeCell
+  , Dialog
 } from 'vant'
 
-Vue.use(DatetimePicker)
 Vue.use(Dialog)
 Vue.use(SwipeCell)
 Vue.use(Image)
@@ -79,25 +76,11 @@ const directiveObj = {
             theTextArea.focus()
           }
         }
-      },
-      update (el) {
-        if (el.nodeName === 'TEXTAREA' || el.nodeName === 'INPUT') {
-          el.focus()
-        } else {
-          const theInput = el.querySelector('input')
-          const theTextArea = el.querySelector('textarea')
-          if (theInput) {
-            theInput.focus()
-          }
-          if (theTextArea) {
-            theTextArea.focus()
-          }
-        }
       }
     })
   }
 }
-Vue.use(directiveObj) // 执行目标对象里install方法并传入Vue类
+Vue.use(directiveObj)// 执行目标对象里install方法并传入Vue类
 
 new Vue({
   router,

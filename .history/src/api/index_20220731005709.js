@@ -43,6 +43,8 @@ export const updateUserPhotoAPI = (formObj) => {
     data: formObj
   })
 }
+//用户更新生日
+export const 
 // 用户更新基本资料
 export const updateUserProfileAPI = (dataObj) => {
   const obj = {

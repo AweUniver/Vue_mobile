@@ -43,7 +43,7 @@
 
 <script>
 import { Dialog } from 'vant'
-import { GetUserInfoAPI } from '@/api'
+import { GetUserInfoAPI, userProfileAPI } from '@/api'
 import { removeToken } from '@/utils/token.js'
 export default {
   data () {

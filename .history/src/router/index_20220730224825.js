@@ -46,12 +46,11 @@ const routes = [
   { // 文章详情页
     path: '/detail',
     component: ArticleDetail
-  },
-  // 用户编辑页面
+  }，
   {
     path: '/user_editor',
     component: UserEditor
-  }
+}
 ]
 
 const router = new VueRouter({
