@@ -84,7 +84,7 @@ export const reportArticleAPI = ({ artId, type }) =>
       remark: '其他问题附加说明'
     }
   })
-// 对文章点赞
+  // 对文章点赞
 export const likeArticleAPI = ({ artId }) =>
   request({
     url: '/v1_0/article/likings',
@@ -93,7 +93,7 @@ export const likeArticleAPI = ({ artId }) =>
       target: artId
     }
   })
-// 取消对文章点赞
+  // 取消对文章点赞
 export const unlikeArticleAPI = ({ artId }) =>
   request({
     url: `/v1_0/article/likings/${artId}`,
@@ -104,50 +104,13 @@ export const detailAPI = ({ artId }) =>
   request({
     url: `/v1_0/articles/${artId}`
   })
-// 文章评论列表
-export const commentsListAPI = ({ id, offset = null, limit = 10 }) =>
+//文章评论列表
+  export const commentsListAPI = ({ artId }) =>
   request({
-    url: '/v1_0/comments',
-    method: 'GET',
-    params: {
-      type: 'a',
-      source: id,
-      offset,
-      limit
-    }
+    url: `/v1_0/articles/${artId}`
   })
-// 文章发布评论
-export const commentsSendAPI = ({ id, content, art_id = null }) => {
-  const obj = {
-    target: id,
-    content
-  }
-  if (art_id === null) {
-    obj.art_id = art_id
-  }
-  return request({
-    url: '/v1_0/comments',
-    method: 'POST',
-    data: obj
-  })
-}
-// 对评论喜欢
-export const commentLikingAPI = ({ comId }) => {
-  return request({
-    url: '/v1_0/comment/likings',
-    method: 'POST',
-    data: {
-      target: comId
-    }
-  })
-}
-// 评论-取消喜欢
-export const commentDisLikingAPI = ({ comId }) => {
-  return request({
-    url: `/v1_0/comment/likings/${comId}`,
-    method: 'DELETE'
-  })
-}
+
+
 // 搜索联想菜单
 export const suggestListAPI = ({ keywords }) =>
   request({

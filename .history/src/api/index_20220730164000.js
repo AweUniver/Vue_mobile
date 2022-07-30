@@ -116,38 +116,7 @@ export const commentsListAPI = ({ id, offset = null, limit = 10 }) =>
       limit
     }
   })
-// 文章发布评论
-export const commentsSendAPI = ({ id, content, art_id = null }) => {
-  const obj = {
-    target: id,
-    content
-  }
-  if (art_id === null) {
-    obj.art_id = art_id
-  }
-  return request({
-    url: '/v1_0/comments',
-    method: 'POST',
-    data: obj
-  })
-}
-// 对评论喜欢
-export const commentLikingAPI = ({ comId }) => {
-  return request({
-    url: '/v1_0/comment/likings',
-    method: 'POST',
-    data: {
-      target: comId
-    }
-  })
-}
-// 评论-取消喜欢
-export const commentDisLikingAPI = ({ comId }) => {
-  return request({
-    url: `/v1_0/comment/likings/${comId}`,
-    method: 'DELETE'
-  })
-}
+
 // 搜索联想菜单
 export const suggestListAPI = ({ keywords }) =>
   request({

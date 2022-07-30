@@ -20,14 +20,14 @@
         :label="formatDate(artObj.pubdate)"
       >
         <template #icon>
-          <img :src="artObj.aut_photo" alt="" class="avatar" />
+          <img src="artObj.aut_photo" alt="" class="avatar" />
         </template>
         <template #default>
           <div>
             <van-button
               type="info"
               size="mini"
-              v-if="artObj.is_followed === true"
+              v-if="artObj.is_followed===true"
               @click="followedFn(true)"
               >已关注</van-button
             >
@@ -74,10 +74,6 @@
         >
       </div>
     </div>
-    <!-- 文章评论部分 -->
-    <div>
-      <comment-list></comment-list>
-    </div>
   </div>
 </template>
 
@@ -99,6 +95,7 @@ export default {
   },
   async created () {
     const res = await detailAPI({ artId: this.$route.query.art_id })
+    console.log(res)
     this.artObj = res.data.data
   },
   methods: {
@@ -107,9 +104,10 @@ export default {
     async followedFn (bool) {
       if (bool === true) {
         this.artObj.is_followed = false
-        await userUnFollowedAPI({
+        const res = await userUnFollowedAPI({
           userId: this.artObj.aut_id
         })
+        console.log(res)
       } else {
         this.artObj.is_followed = true
         await userFollowedAPI({
@@ -131,9 +129,6 @@ export default {
         })
       }
     }
-  },
-  components: {
-    CommentList
   }
 }
 </script>

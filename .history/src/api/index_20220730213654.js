@@ -122,13 +122,12 @@ export const commentsSendAPI = ({ id, content, art_id = null }) => {
     target: id,
     content
   }
-  if (art_id === null) {
-    obj.art_id = art_id
-  }
   return request({
     url: '/v1_0/comments',
     method: 'POST',
-    data: obj
+    data: {
+      art_id
+    }
   })
 }
 // 对评论喜欢

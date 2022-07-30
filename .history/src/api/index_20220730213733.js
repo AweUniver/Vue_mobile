@@ -128,7 +128,9 @@ export const commentsSendAPI = ({ id, content, art_id = null }) => {
   return request({
     url: '/v1_0/comments',
     method: 'POST',
-    data: obj
+    data: {
+      art_id
+    }
   })
 }
 // 对评论喜欢

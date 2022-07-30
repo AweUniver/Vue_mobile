@@ -24,10 +24,8 @@ import {
   Search
   , Image as VanImage,
   Divider
-  , ShareSheet
 } from 'vant'
 
-Vue.use(ShareSheet)
 Vue.use(Divider)
 Vue.use(VanImage)
 Vue.use(Search)
@@ -61,10 +59,10 @@ const directiveObj = {
           const theInput = el.querySelector('input')
           const theTextArea = el.querySelector('textarea')
           if (theInput) {
-            theInput.focus()
+            theInput.focus
           }
           if (theTextArea) {
-            theTextArea.focus()
+            theTextArea.focus
           }
         }
       }

@@ -116,22 +116,16 @@ export const commentsListAPI = ({ id, offset = null, limit = 10 }) =>
       limit
     }
   })
-// 文章发布评论
-export const commentsSendAPI = ({ id, content, art_id = null }) => {
-  const obj = {
-    target: id,
-    content
-  }
-  if (art_id === null) {
-    obj.art_id = art_id
-  }
-  return request({
+  // 文章发布评论
+export const commentsSendAPI = ({ }) =>
+  request({
     url: '/v1_0/comments',
     method: 'POST',
-    data: obj
+    params: {
+      target: artId
+    }
   })
-}
-// 对评论喜欢
+  // 对评论喜欢
 export const commentLikingAPI = ({ comId }) => {
   return request({
     url: '/v1_0/comment/likings',

@@ -24,10 +24,8 @@ import {
   Search
   , Image as VanImage,
   Divider
-  , ShareSheet
 } from 'vant'
 
-Vue.use(ShareSheet)
 Vue.use(Divider)
 Vue.use(VanImage)
 Vue.use(Search)

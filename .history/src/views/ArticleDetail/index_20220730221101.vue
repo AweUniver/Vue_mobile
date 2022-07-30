@@ -107,9 +107,10 @@ export default {
     async followedFn (bool) {
       if (bool === true) {
         this.artObj.is_followed = false
-        await userUnFollowedAPI({
+        const res = await userUnFollowedAPI({
           userId: this.artObj.aut_id
         })
+        console.log(res)
       } else {
         this.artObj.is_followed = true
         await userFollowedAPI({
