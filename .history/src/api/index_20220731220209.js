@@ -1,5 +1,4 @@
 import request from '@/utils/request.js'
-import { getStorage } from '@/utils/storage.js'
 export * from './ArticleDetail.js'
 // 登录接口
 export const loginAPI = ({ mobile, code }) =>
@@ -16,7 +15,7 @@ export const getNewTokenAPI = () => request({
   url: '/v1_0/authorizations',
   method: 'PUT',
   headers: {
-    Authorization: 'Bearer ' + getStorage('refresh_token')
+    Authorization: 'Bearer ' + localStorage.getItem('refresh_token')
   }
 })
 // 用户关注

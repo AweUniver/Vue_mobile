@@ -7,38 +7,37 @@
         <div class="title-box">
           <!-- 标题 -->
           <span>{{ artObj.title }}</span>
-          <!-- <img
+          <img
             v-if="artObj.cover.type === 1"
             class="thumb"
-            :src="artObj.cover.images[0]"
+             v-lazy="artObj.cover.images[0]"
             alt=""
-          /> -->
-          <van-image
+          />
+          <!-- <van-image
             v-if="artObj.cover.type === 1"
             class="thumb"
-            :src="artObj.cover.images[0]"
-            alt=""
+            v-lazy="artObj.cover.images[0]"
           >
             <template v-slot:error>图片走丢了</template>
-          </van-image>
+          </van-image> -->
         </div>
         <div class="thumb-box" v-if="artObj.cover.type > 1">
-          <!-- <img
+          <img
             v-for="(imgUrl, index) in artObj.cover.images"
             :key="index"
             class="thumb"
-            :src="imgUrl"
+            v-lazy="imgUrl"
             alt=""
-          /> -->
-           <van-image
+          />
+           <!-- <van-image
              v-for="(imgUrl, index) in artObj.cover.images"
             :key="index"
             class="thumb"
-            :src="imgUrl"
+            v-lazy="imgUrl"
             alt=""
           >
             <template v-slot:error>图片走丢了</template>
-          </van-image>
+          </van-image> -->
         </div>
       </template>
       <!-- label 区域的插槽 -->

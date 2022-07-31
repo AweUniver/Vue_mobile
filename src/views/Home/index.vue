@@ -7,7 +7,12 @@
           <img class="logo" src="@/assets/logo.png" alt="" />
         </template>
         <template #right>
-          <van-icon name="search" size="0.48rem" color="#fff" @click="moveSearchFn"/>
+          <van-icon
+            name="search"
+            size="0.48rem"
+            color="#fff"
+            @click="moveSearchFn"
+          />
         </template>
       </van-nav-bar>
     </div>
@@ -68,7 +73,8 @@ export default {
       channelId: 0, // 激活时频道ID,默认频道ID为0
       userChannelList: [], // 用户选择频道列表
       allChannelList: [], // 所有频道列表
-      show: false // 频道弹出层展示或隐藏
+      show: false, // 频道弹出层展示或隐藏
+      channelScrollTObj: {}// 每个频道的滚动位置
     }
   },
   async created () {
@@ -93,6 +99,11 @@ export default {
       //   })
       //   console.log(res2)
       //   this.articleList = res2.data.data.results
+
+      // tab切换后，设置滚动条位置
+      this.$nextTick(() => {
+        document.documentElement.scrollTop = this.channelScrollTObj[this.channelId]
+      })
     },
     // +号点击方法
     plusClickFn () {
@@ -132,6 +143,11 @@ export default {
     // 搜索页面
     moveSearchFn () {
       this.$router.push('/search')
+    },
+    scrollFn () {
+      this.$route.meta.scrollT = document.documentElement.scrollTop
+      // 同时保存当前频道的滚动距离
+      this.channelScrollTObj[this.channelId] = document.documentElement.scrollTop
     }
   },
   // 计算属性
@@ -155,6 +171,13 @@ export default {
           ) === -1
       )
     }
+  },
+  activated () {
+    window.addEventListener('scroll', this.scrollFn)
+    document.documentElement.scrollTop = this.$route.meta.scrollT
+  },
+  deactivated () {
+    window.removeEventListener('scroll', this.scrollFn)
   }
 }
 </script>

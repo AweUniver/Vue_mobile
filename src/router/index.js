@@ -28,7 +28,10 @@ const routes = [
     children: [
       {
         path: 'home',
-        component: () => import(/* webpackChunkName:"Home" */ '@/views/Home')
+        component: () => import(/* webpackChunkName:"Home" */ '@/views/Home'),
+        meta: {
+          scrollT: 0// 保存首页离开时滚动条位置
+        }
       },
       {
         path: 'user',
@@ -71,7 +74,8 @@ const router = new VueRouter({
 // 路由-全局前置首位
 router.beforeEach((to, from, next) => {
   if (getToken()?.length > 0 && to.path === '/login') {
-    next(false)
+    // next(false)
+    next('/layout/home')
   } else {
     next()
   }

@@ -57,7 +57,6 @@
 
 <script>
 import { suggestListAPI } from '@/api/index'
-import { getStorage, setStorage } from '@/utils/storage'
 export default {
   name: 'Search',
   data () {
@@ -65,7 +64,7 @@ export default {
       kw: '', // 搜索关键字
       timer: null, // 防抖定时器
       suggestList: [], // 联想建议列表的数组
-      history: JSON.parse(getStorage('his')) || [] // 搜索历史
+      history: JSON.parse(localStorage.getItem('his')) || [] // 搜索历史
     }
   },
   methods: {
@@ -124,7 +123,7 @@ export default {
       handler () {
         const theSet = new Set(this.history)
         const arr = Array.from(theSet)
-        setStorage('his', JSON.stringify(arr))
+        localStorage.setItem('his', JSON.stringify(arr))
       }
     }
   }

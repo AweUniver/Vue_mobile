@@ -78,6 +78,7 @@ import {
 } from '@/api'
 import { Notify } from 'vant'
 import { formatDate } from '@/utils/date.js'
+import { mapMutations } from 'vuex'
 export default {
   data () {
     return {
@@ -96,6 +97,7 @@ export default {
     this.profileObj = res.data.data
   },
   methods: {
+    ...mapMutations(['SET_USERPHOTO', 'SET_USERNAME']),
     // 文件选择事件
     async onFileChange (e) {
       if (e.target.files.length === 0) return
@@ -103,6 +105,7 @@ export default {
       theFd.append('photo', e.target.files[0])
       const res = await updateUserPhotoAPI(theFd)
       this.profileObj.photo = res.data.data.photo
+      this.SET_USERPHOTO(res.data.data.photo)
     },
     // 图片点击事件
     imageClickFn () {
@@ -122,6 +125,7 @@ export default {
             name: this.inputUserName
           })
           this.profileObj.name = this.inputUserName
+          this.SET_USERNAME(this.inputUserName)
           done()
         } else {
           Notify({

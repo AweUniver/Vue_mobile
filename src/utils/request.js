@@ -1,8 +1,10 @@
 // 基于axios封装网络请求
 import theAxios from 'axios'
 import router from '@/router'
-import { Notify } from 'vant'
+// import { Notify } from 'vant'
+// import { getToken, setToken, removeToken } from '@/utils/token.js'
 import { getToken, removeToken } from '@/utils/token.js'
+// import { getNewTokenAPI } from '@/api'
 const axios = theAxios.create({
   baseURL: 'http://toutiao.itheima.net',
   timeout: 20000 // 20秒超时时间
@@ -29,16 +31,28 @@ axios.interceptors.response.use(
     // 对响应数据做点什么
     return response
   },
-  function (error) {
+  async function (error) {
     // 对响应错误做点什么
     // 只有401才代表身份过期，才需要登录
     if (error.response.status === 401) {
       // 不能使用this.$router (因为this不是vue组件对象无法调用$router)
-      Notify({ type: 'warning', message: '身份已过期' })
+    //   Notify({ type: 'warning', message: '身份已过期' })
       removeToken()
-      router.replace('/login')
+      router.replace(`/login?path=${router.currentRoute.fullPath}`)
     }
-
+    //   const res = await getNewTokenAPI()
+    //   setToken(res.data.data.token) // 更新token
+    //   error.config.headers.Authorization = `Bearer ${res.data.data.token}`
+    //   return axios(error.config) // 发送未完成请求
+    // } else if (
+    //   error.response.status === 500 &&
+    //   error.config.url === '/v1_0/authorizations' &&
+    //   error.config.method === 'put'
+    // ) {
+    //   removeToken()
+    //   localStorage.clear()
+    //   router.replace('/login')
+    // }
     return Promise.reject(error)
   }
 )

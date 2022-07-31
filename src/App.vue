@@ -1,14 +1,13 @@
 <template>
   <div>
-    <router-view></router-view>
+    <keep-alive exclude="SearchResult,Search,Detail,UserEdit">
+      <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 
 <script>
-
-export default {
-
-}
+export default {}
 </script>
 
 <style></style>
