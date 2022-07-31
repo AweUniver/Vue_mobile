@@ -55,7 +55,6 @@ export default {
   async created () {
     const res = await GetUserInfoAPI()
     this.userObj = res.data.data
-    this.SET_USERPHOTO(this.userObj.photo)
   },
   methods: {
     ...mapMutations(['SET_USERPHOTO']),

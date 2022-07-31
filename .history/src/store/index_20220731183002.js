@@ -10,9 +10,6 @@ export default new Vuex.Store({
   getters: {
   },
   mutations: {
-    SET_USERPHOTO (state, value) {
-      state.userPhoto = value
-    }
   },
   actions: {
   },

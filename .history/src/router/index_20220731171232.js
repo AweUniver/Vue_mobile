@@ -10,6 +10,7 @@ import ArticleDetail from '@/views/ArticleDetail'
 import UserEditor from '@/views/User/UserEdit'
 import Chat from '@/views/Chat'
 
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -52,12 +53,12 @@ const routes = [
   {
     path: '/user_editor',
     component: UserEditor
-  },
-  // 小思同学
+  }
+  //小思同学
   {
     path: '/chat',
     component: Chat
-  }
+}
 ]
 
 const router = new VueRouter({

@@ -55,7 +55,6 @@ export default {
   async created () {
     const res = await GetUserInfoAPI()
     this.userObj = res.data.data
-    this.SET_USERPHOTO(this.userObj.photo)
   },
   methods: {
     ...mapMutations(['SET_USERPHOTO']),
@@ -69,6 +68,7 @@ export default {
           // on confirm
           removeToken()
           this.$router.replace('/login')
+          this.SET_USERPHOTO(this.userObj.photo)
         })
         .catch(() => {
           // on cancel

@@ -45,7 +45,6 @@
 import { Dialog } from 'vant'
 import { GetUserInfoAPI } from '@/api'
 import { removeToken } from '@/utils/token.js'
-import { mapMutations } from 'vuex'
 export default {
   data () {
     return {
@@ -55,10 +54,8 @@ export default {
   async created () {
     const res = await GetUserInfoAPI()
     this.userObj = res.data.data
-    this.SET_USERPHOTO(this.userObj.photo)
   },
   methods: {
-    ...mapMutations(['SET_USERPHOTO']),
     // 退出方法
     quitFn () {
       Dialog.confirm({
