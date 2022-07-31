@@ -72,8 +72,6 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   if (getToken()?.length > 0 && to.path === '/login') {
     next(false)
-  } else {
-    next()
   }
 })
 export default router

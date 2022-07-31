@@ -9,7 +9,6 @@ import VueRouter from 'vue-router'
 // import ArticleDetail from '@/views/ArticleDetail'
 // import UserEditor from '@/views/User/UserEdit'
 // import Chat from '@/views/Chat'
-import { getToken } from '@/utils/token.js'
 
 Vue.use(VueRouter)
 
@@ -68,12 +67,7 @@ const routes = [
 const router = new VueRouter({
   routes
 })
-// 路由-全局前置首位
 router.beforeEach((to, from, next) => {
-  if (getToken()?.length > 0 && to.path === '/login') {
-    next(false)
-  } else {
-    next()
-  }
+
 })
 export default router

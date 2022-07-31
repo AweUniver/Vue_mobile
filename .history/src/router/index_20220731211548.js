@@ -71,9 +71,7 @@ const router = new VueRouter({
 // 路由-全局前置首位
 router.beforeEach((to, from, next) => {
   if (getToken()?.length > 0 && to.path === '/login') {
-    next(false)
-  } else {
-    next()
+
   }
 })
 export default router
