@@ -30,7 +30,7 @@ import {
   dislikeArticleAPI,
   reportArticleAPI
 } from '@/api'
-import { Notify } from 'vant'
+import Notify from '@/ui/Notify.js'
 export default {
   props: {
     // list: Array // 文章列表数组
