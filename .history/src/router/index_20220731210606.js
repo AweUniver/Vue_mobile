@@ -23,44 +23,40 @@ const routes = [
   },
   {
     path: '/layout',
-    component: () => import(/* webpackChunkName:"Layout" */ '@/views/Layout'),
+    component: Layout,
     children: [
       {
         path: 'home',
-        component: () => import(/* webpackChunkName:"Home" */ '@/views/Home')
+        component: Home
       },
       {
         path: 'user',
-        component: () => import(/* webpackChunkName:"User" */ '@/views/User')
+        component: User
       }
     ]
   },
   {
     path: '/search',
-    component: () => import(/* webpackChunkName:"Search" */ '@/views/Search')
+    component: Search
   },
   {
     // 搜索结果页
     path: '/search_result/:kw',
-    component: () =>
-      import(/* webpackChunkName:"SearchResult" */ '@/views/Search/SearchResult.vue')
+    component: SearchResult
   },
-  {
-    // 文章详情页
+  { // 文章详情页
     path: '/detail',
-    component: () =>
-      import(/* webpackChunkName:"ArticleDetail" */ '@/views/ArticleDetail')
+    component: ArticleDetail
   },
   // 用户编辑页面
   {
     path: '/user_editor',
-    component: () =>
-      import(/* webpackChunkName:"UserEdit" */ '@/views/User/UserEdit')
+    component: UserEditor
   },
   // 小思同学
   {
     path: '/chat',
-    component: () => import(/* webpackChunkName:"Chat" */ '@/views/Chat')
+    component: Chat
   }
 ]
 

@@ -23,44 +23,40 @@ const routes = [
   },
   {
     path: '/layout',
-    component: () => import(/* webpackChunkName:"Layout" */ '@/views/Layout'),
+    component: component: () => import(/* webpackChunkName:"Login" */ '@/views/Layout'),
     children: [
       {
         path: 'home',
-        component: () => import(/* webpackChunkName:"Home" */ '@/views/Home')
+        component: component: () => import(/* webpackChunkName:"Login" */ '@/views/Home')
       },
       {
         path: 'user',
-        component: () => import(/* webpackChunkName:"User" */ '@/views/User')
+        component: component: () => import(/* webpackChunkName:"Login" */ '@/views/User')
       }
     ]
   },
   {
     path: '/search',
-    component: () => import(/* webpackChunkName:"Search" */ '@/views/Search')
+    component: component: () => import(/* webpackChunkName:"Login" */ '@/views/Search')
   },
   {
     // 搜索结果页
     path: '/search_result/:kw',
-    component: () =>
-      import(/* webpackChunkName:"SearchResult" */ '@/views/Search/SearchResult.vue')
+    component: component: () => import(/* webpackChunkName:"Login" */ '@/views/Search/SearchResult.vue')
   },
-  {
-    // 文章详情页
+  { // 文章详情页
     path: '/detail',
-    component: () =>
-      import(/* webpackChunkName:"ArticleDetail" */ '@/views/ArticleDetail')
+    component: component: () => import(/* webpackChunkName:"Login" */ '@/views/ArticleDetail')
   },
   // 用户编辑页面
   {
     path: '/user_editor',
-    component: () =>
-      import(/* webpackChunkName:"UserEdit" */ '@/views/User/UserEdit')
+    component: component: () => import(/* webpackChunkName:"Login" */ '@/views/User/UserEdit')
   },
   // 小思同学
   {
     path: '/chat',
-    component: () => import(/* webpackChunkName:"Chat" */ '@/views/Chat')
+    component: component: () => import(/* webpackChunkName:"Login" */ '@/views/Chat')
   }
 ]
 

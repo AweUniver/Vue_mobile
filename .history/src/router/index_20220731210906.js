@@ -23,44 +23,44 @@ const routes = [
   },
   {
     path: '/layout',
-    component: () => import(/* webpackChunkName:"Layout" */ '@/views/Layout'),
+    component: () => import(/* webpackChunkName:"Login" */ '@/views/Layout'),
     children: [
       {
         path: 'home',
-        component: () => import(/* webpackChunkName:"Home" */ '@/views/Home')
+        component: () => import(/* webpackChunkName:"Login" */ '@/views/Home')
       },
       {
         path: 'user',
-        component: () => import(/* webpackChunkName:"User" */ '@/views/User')
+        component: () => import(/* webpackChunkName:"Login" */ '@/views/User')
       }
     ]
   },
   {
     path: '/search',
-    component: () => import(/* webpackChunkName:"Search" */ '@/views/Search')
+    component: () => import(/* webpackChunkName:"Login" */ '@/views/Search')
   },
   {
     // 搜索结果页
     path: '/search_result/:kw',
     component: () =>
-      import(/* webpackChunkName:"SearchResult" */ '@/views/Search/SearchResult.vue')
+      import(/* webpackChunkName:"Login" */ '@/views/Search/SearchResult.vue')
   },
   {
     // 文章详情页
     path: '/detail',
     component: () =>
-      import(/* webpackChunkName:"ArticleDetail" */ '@/views/ArticleDetail')
+      import(/* webpackChunkName:"Login" */ '@/views/ArticleDetail')
   },
   // 用户编辑页面
   {
     path: '/user_editor',
     component: () =>
-      import(/* webpackChunkName:"UserEdit" */ '@/views/User/UserEdit')
+      import(/* webpackChunkName:"Login" */ '@/views/User/UserEdit')
   },
   // 小思同学
   {
     path: '/chat',
-    component: () => import(/* webpackChunkName:"Chat" */ '@/views/Chat')
+    component: () => import(/* webpackChunkName:"Login" */ '@/views/Chat')
   }
 ]
 
